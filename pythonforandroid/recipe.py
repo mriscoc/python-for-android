@@ -76,7 +76,7 @@ class Recipe(metaclass=RecipeMeta):
 
     _version = None
     '''A string giving the version of the software the recipe describes,
-    e.g. ``2.0.3`` or ``master``.'''
+    e.g. ``2.0.3``. In case of git repository version is branch or a tagged release e.g. ``v12.3`` or ``develop``.'''
 
     md5sum = None
     '''The md5sum of the source from the :attr:`url`. Non-essential, but
@@ -109,7 +109,7 @@ class Recipe(metaclass=RecipeMeta):
     recipe if they are built at all, but whose presence is not essential.'''
 
     patches = []
-    '''A list of patches to apply to the source. Values can be either a string
+    '''Alist of patches to apply to the source. Values can be either a string
     referring to the patch file relative to the recipe dir, or a tuple of the
     string patch file and a callable, which will receive the kwargs `arch` and
     `recipe`, which should return True if the patch should be applied.'''
@@ -153,6 +153,11 @@ class Recipe(metaclass=RecipeMeta):
 
     .. note:: Android NDK version > 17 only supports 'c++_shared', because
         starting from NDK r18 the `gnustl_shared` lib has been deprecated.
+    '''
+
+    min_ndk_api_support = 20
+    '''
+    Minimum ndk api your recipe will support
     '''
 
     def get_stl_library(self, arch):
@@ -252,23 +257,20 @@ class Recipe(metaclass=RecipeMeta):
             if not isdir(target):
                 if url.startswith('git+'):
                     url = url[4:]
-                # if 'version' is specified, do a shallow clone
-                if self.version:
-                    ensure_dir(target)
-                    with current_directory(target):
-                        shprint(sh.git, 'init')
-                        shprint(sh.git, 'remote', 'add', 'origin', url)
-                else:
-                    shprint(sh.git, 'clone', '--recursive', url, target)
-            with current_directory(target):
-                if self.version:
-                    shprint(sh.git, 'fetch', '--tags', '--depth', '1')
-                    shprint(sh.git, 'checkout', self.version)
-                branch = sh.git('branch', '--show-current')
-                if branch:
-                    shprint(sh.git, 'pull')
-                    shprint(sh.git, 'pull', '--recurse-submodules')
-                shprint(sh.git, 'submodule', 'update', '--recursive', '--init', '--depth', '1')
+
+                shprint(
+                    sh.git,
+                    'clone',
+                    '--branch',
+                    self.version,
+                    '--depth',
+                    '1',
+                    '--recurse-submodules',
+                    '--shallow-submodules',
+                    url,
+                    target,
+                )
+
             return target
 
     def apply_patch(self, filename, arch, build_dir=None):
@@ -375,7 +377,12 @@ class Recipe(metaclass=RecipeMeta):
     # Public Recipe API to be subclassed if needed
 
     def download_if_necessary(self):
+        if self.ctx.ndk_api < self.min_ndk_api_support:
+            error(f"In order to build '{self.name}', you must set minimum ndk api (minapi) to `{self.min_ndk_api_support}`.\n")
+            exit(1)
+
         info_main('Downloading {}'.format(self.name))
+
         user_dir = environ.get('P4A_{}_DIR'.format(self.name.lower()))
         if user_dir is not None:
             info('P4A_{}_DIR is set, skipping download for {}'.format(
@@ -919,6 +926,32 @@ class PythonRecipe(Recipe):
             name = self.name
         return name
 
+    def patch_shebang(self, _file, original_bin):
+        _file_des = open(_file, "r")
+
+        try:
+            data = _file_des.readlines()
+        except UnicodeDecodeError:
+            return
+
+        if "#!" in (line := data[0]):
+            if line.split("#!")[-1].strip() == original_bin:
+                return
+
+            info(f"Fixing sheband for '{_file}'")
+            data.pop(0)
+            data.insert(0, "#!" + original_bin + "\n")
+            _file_des.close()
+            _file_des = open(_file, "w")
+            _file_des.write("".join(data))
+            _file_des.close()
+
+    def patch_shebangs(self, path, original_bin):
+        # set correct shebang
+        for file in listdir(path):
+            _file = join(path, file)
+            self.patch_shebang(_file, original_bin)
+
     def get_recipe_env(self, arch=None, with_flags_in_cc=True):
         env = super().get_recipe_env(arch, with_flags_in_cc)
         env['PYTHONNOUSERSITE'] = '1'
@@ -1260,6 +1293,9 @@ class PyProjectRecipe(PythonRecipe):
         self.install_hostpython_prerequisites(
             packages=["build[virtualenv]", "pip"] + self.hostpython_prerequisites
         )
+        python_bin_dir = join(self.hostpython_site_dir, "bin")
+        self.patch_shebangs(python_bin_dir, self.real_hostpython_location)
+
         build_dir = self.get_build_dir(arch.arch)
         env = self.get_recipe_env(arch, with_flags_in_cc=True)
         # make build dir separately
@@ -1308,6 +1344,7 @@ class MesonRecipe(PyProjectRecipe):
                 "cpp_args": self.sanitize_flags(env["CXXFLAGS"], env["CPPFLAGS"]),
                 "c_link_args": self.sanitize_flags(env["LDFLAGS"]),
                 "cpp_link_args": self.sanitize_flags(env["LDFLAGS"]),
+                "fortran_link_args": self.sanitize_flags(env["LDFLAGS"]),
             },
             "properties": {
                 "needs_exe_wrapper": True,
