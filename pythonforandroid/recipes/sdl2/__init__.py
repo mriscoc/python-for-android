@@ -6,7 +6,7 @@ import sh
 
 
 class LibSDL2Recipe(BootstrapNDKRecipe):
-    version = "2.28.5"
+    version = "2.30.11"
     url = "https://github.com/libsdl-org/SDL/releases/download/release-{version}/SDL2-{version}.tar.gz"
     md5sum = 'a344eb827a03045c9b399e99af4af13d'
 
