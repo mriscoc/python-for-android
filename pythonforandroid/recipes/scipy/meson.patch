@@ -1,53 +1,3 @@
-Binary files scipy.git/.git/index and scipy.git.patch/.git/index differ
-diff '--color=auto' -uNr scipy.git/.git/logs/refs/remotes/origin/main scipy.git.patch/.git/logs/refs/remotes/origin/main
---- scipy.git/.git/logs/refs/remotes/origin/main	2025-03-27 02:55:14.521123150 +0530
-+++ scipy.git.patch/.git/logs/refs/remotes/origin/main	2025-03-27 11:24:34.225186085 +0530
-@@ -1,2 +1,2 @@
- 0000000000000000000000000000000000000000 48729662732146f4b9191c51622077505c1d50c4 Ansh Dadwal <anshdadwal298@gmail.com> 1742991556 +0530	fetch --tags --depth 1: storing head
--48729662732146f4b9191c51622077505c1d50c4 25c83634c99c78f7aeef0e38fd5060cb810e2218 Ansh Dadwal <anshdadwal298@gmail.com> 1743024293 +0530	fetch --all --no-write-fetch-head: fast-forward
-+48729662732146f4b9191c51622077505c1d50c4 2a330d119f4adcf40bbed677e2c659c556c4b10c Ansh Dadwal <anshdadwal298@gmail.com> 1743054874 +0530	fetch --all --no-write-fetch-head: fast-forward
-Binary files scipy.git/.git/objects/0d/02ec1f1f196b92ae7272138c486cf848183114 and scipy.git.patch/.git/objects/0d/02ec1f1f196b92ae7272138c486cf848183114 differ
-Binary files scipy.git/.git/objects/18/0f09926772f607e076ebb1508239607ce2ab22 and scipy.git.patch/.git/objects/18/0f09926772f607e076ebb1508239607ce2ab22 differ
-Binary files scipy.git/.git/objects/28/a68ee737b8578d402e93066be0ba960e7f0f03 and scipy.git.patch/.git/objects/28/a68ee737b8578d402e93066be0ba960e7f0f03 differ
-Binary files scipy.git/.git/objects/2a/330d119f4adcf40bbed677e2c659c556c4b10c and scipy.git.patch/.git/objects/2a/330d119f4adcf40bbed677e2c659c556c4b10c differ
-Binary files scipy.git/.git/objects/2d/8e8e18e18d0db6428f72699ec0cc266eb9be12 and scipy.git.patch/.git/objects/2d/8e8e18e18d0db6428f72699ec0cc266eb9be12 differ
-Binary files scipy.git/.git/objects/3b/2ef179b2b52d890292bc5b5be159aca554b0e8 and scipy.git.patch/.git/objects/3b/2ef179b2b52d890292bc5b5be159aca554b0e8 differ
-Binary files scipy.git/.git/objects/41/d31bf24ece424a2a855cfb4033d5b188d94fb6 and scipy.git.patch/.git/objects/41/d31bf24ece424a2a855cfb4033d5b188d94fb6 differ
-Binary files scipy.git/.git/objects/42/8fa48420c07c28b0ba56a180fe36dde47c2e76 and scipy.git.patch/.git/objects/42/8fa48420c07c28b0ba56a180fe36dde47c2e76 differ
-Binary files scipy.git/.git/objects/43/d378890bc0107353635039aff4fc291b54ab2d and scipy.git.patch/.git/objects/43/d378890bc0107353635039aff4fc291b54ab2d differ
-Binary files scipy.git/.git/objects/47/3ede8b6a4fc326b3ab783173a21b6e2c266f80 and scipy.git.patch/.git/objects/47/3ede8b6a4fc326b3ab783173a21b6e2c266f80 differ
-Binary files scipy.git/.git/objects/4b/0751abec308d9b44e66e53910fb57a6bc06ea0 and scipy.git.patch/.git/objects/4b/0751abec308d9b44e66e53910fb57a6bc06ea0 differ
-Binary files scipy.git/.git/objects/57/2a08b57457d934b1b0b0a854b325564b5a97f9 and scipy.git.patch/.git/objects/57/2a08b57457d934b1b0b0a854b325564b5a97f9 differ
-Binary files scipy.git/.git/objects/5b/e56185477360da3460bcb014bdf4ad489a2fa0 and scipy.git.patch/.git/objects/5b/e56185477360da3460bcb014bdf4ad489a2fa0 differ
-Binary files scipy.git/.git/objects/63/951b7f33f1a36efdd146ba9eac72dd7a0eff21 and scipy.git.patch/.git/objects/63/951b7f33f1a36efdd146ba9eac72dd7a0eff21 differ
-Binary files scipy.git/.git/objects/6c/1fdf7ce31d93f6792d3a0ab20ac8ebc491634a and scipy.git.patch/.git/objects/6c/1fdf7ce31d93f6792d3a0ab20ac8ebc491634a differ
-Binary files scipy.git/.git/objects/79/985f4843e2594097a1f642b439e1cdd4e95b67 and scipy.git.patch/.git/objects/79/985f4843e2594097a1f642b439e1cdd4e95b67 differ
-Binary files scipy.git/.git/objects/85/d98090063ebe22ee1b0fae064872e6dcf8cf3e and scipy.git.patch/.git/objects/85/d98090063ebe22ee1b0fae064872e6dcf8cf3e differ
-Binary files scipy.git/.git/objects/99/be9d37640e84a558303f4186b497b0b68b4cb8 and scipy.git.patch/.git/objects/99/be9d37640e84a558303f4186b497b0b68b4cb8 differ
-Binary files scipy.git/.git/objects/9c/7b6bdf4c4cfee1321630a790de96f79d68cc34 and scipy.git.patch/.git/objects/9c/7b6bdf4c4cfee1321630a790de96f79d68cc34 differ
-Binary files scipy.git/.git/objects/a1/48b22d0a8a9d7b84f493eac71ca2923dc90b13 and scipy.git.patch/.git/objects/a1/48b22d0a8a9d7b84f493eac71ca2923dc90b13 differ
-Binary files scipy.git/.git/objects/a2/8cf022e4d93f9295fafadc34eeac3b5feb9865 and scipy.git.patch/.git/objects/a2/8cf022e4d93f9295fafadc34eeac3b5feb9865 differ
-Binary files scipy.git/.git/objects/a2/e0f0f294e82b4f1d8f22a95997d350dc8e99ac and scipy.git.patch/.git/objects/a2/e0f0f294e82b4f1d8f22a95997d350dc8e99ac differ
-Binary files scipy.git/.git/objects/a8/a7e3a074af75d757f1b07e501982c0c69407f9 and scipy.git.patch/.git/objects/a8/a7e3a074af75d757f1b07e501982c0c69407f9 differ
-Binary files scipy.git/.git/objects/b5/2de999adafb86bc6eeb8cc4a305f807961fb5b and scipy.git.patch/.git/objects/b5/2de999adafb86bc6eeb8cc4a305f807961fb5b differ
-Binary files scipy.git/.git/objects/ba/ccd8bf8b7cf9bfc9419c0b89e9002e2643cb3f and scipy.git.patch/.git/objects/ba/ccd8bf8b7cf9bfc9419c0b89e9002e2643cb3f differ
-Binary files scipy.git/.git/objects/c3/4e2f9bdbf408c8c58de1ba443976b6d43644c5 and scipy.git.patch/.git/objects/c3/4e2f9bdbf408c8c58de1ba443976b6d43644c5 differ
-Binary files scipy.git/.git/objects/c3/b0c331b41fcf32c4fb2094161e2c0cbaa3018d and scipy.git.patch/.git/objects/c3/b0c331b41fcf32c4fb2094161e2c0cbaa3018d differ
-Binary files scipy.git/.git/objects/d4/fa8791ac576224f76d12fb5c70d92a349bc048 and scipy.git.patch/.git/objects/d4/fa8791ac576224f76d12fb5c70d92a349bc048 differ
-Binary files scipy.git/.git/objects/d6/2bbef60cbf7d132f18edd9de507e293ac6a714 and scipy.git.patch/.git/objects/d6/2bbef60cbf7d132f18edd9de507e293ac6a714 differ
-Binary files scipy.git/.git/objects/d8/6830415fbcd94805f3e4f5f4d500af07bc24fa and scipy.git.patch/.git/objects/d8/6830415fbcd94805f3e4f5f4d500af07bc24fa differ
-Binary files scipy.git/.git/objects/d8/b32d2bf04fb1c84cb222c8fb9659e081a4cca6 and scipy.git.patch/.git/objects/d8/b32d2bf04fb1c84cb222c8fb9659e081a4cca6 differ
-Binary files scipy.git/.git/objects/e1/8876588aa60e9276f2e9f033639486d784c1bb and scipy.git.patch/.git/objects/e1/8876588aa60e9276f2e9f033639486d784c1bb differ
-Binary files scipy.git/.git/objects/ef/2dfb84924876e9ad942f107735034e55a1f96e and scipy.git.patch/.git/objects/ef/2dfb84924876e9ad942f107735034e55a1f96e differ
-Binary files scipy.git/.git/objects/f7/fa114cd42e062893a58dd8ab862994de26fd2d and scipy.git.patch/.git/objects/f7/fa114cd42e062893a58dd8ab862994de26fd2d differ
-Binary files scipy.git/.git/objects/fa/cd8015cbaf54c110eeeac21e62fcd9ba62740d and scipy.git.patch/.git/objects/fa/cd8015cbaf54c110eeeac21e62fcd9ba62740d differ
-Binary files scipy.git/.git/objects/ff/5a231c656bd9ffe9c014c998f421a41bbc9b5c and scipy.git.patch/.git/objects/ff/5a231c656bd9ffe9c014c998f421a41bbc9b5c differ
-diff '--color=auto' -uNr scipy.git/.git/refs/remotes/origin/main scipy.git.patch/.git/refs/remotes/origin/main
---- scipy.git/.git/refs/remotes/origin/main	2025-03-27 02:55:14.462475393 +0530
-+++ scipy.git.patch/.git/refs/remotes/origin/main	2025-03-27 11:24:34.225186085 +0530
-@@ -1 +1 @@
--25c83634c99c78f7aeef0e38fd5060cb810e2218
-+2a330d119f4adcf40bbed677e2c659c556c4b10c
 diff '--color=auto' -uNr scipy.git/meson.options scipy.git.patch/meson.options
 --- scipy.git/meson.options	2025-03-27 02:55:14.586853766 +0530
 +++ scipy.git.patch/meson.options	2025-03-27 02:07:29.736674085 +0530
@@ -66,7 +16,7 @@ diff '--color=auto' -uNr scipy.git/scipy/meson.build scipy.git.patch/scipy/meson
 @@ -268,10 +268,18 @@
    endif
  endif
- 
+
 +openblas_inc = get_option('openblas_incldir')
 +openblas_lib = get_option('openblas_libdir')
 +
@@ -79,7 +29,7 @@ diff '--color=auto' -uNr scipy.git/scipy/meson.build scipy.git.patch/scipy/meson
  # that too to make the fallback detection with CMake work
  if blas_name == 'openblas'
 -  blas = dependency(['openblas', 'OpenBLAS'])
-+  blas = openblas_dep 
++  blas = openblas_dep
  elif blas_name != 'scipy-openblas'  # if so, we found it already
    blas = dependency(blas_name)
  endif

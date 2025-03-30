@@ -15,7 +15,7 @@ all: virtualenv
 
 $(VIRTUAL_ENV):
 	python3 -m venv $(VIRTUAL_ENV)
-	$(PIP) install Cython==0.29.36
+	$(PIP) install Cython>=3.0.8
 	$(PIP) install -e .
 
 virtualenv: $(VIRTUAL_ENV)
@@ -86,7 +86,7 @@ testapps-webview/%: virtualenv
     --requirements sqlite3,libffi,openssl,pyjnius,flask,python3,genericndkbuild \
     --arch=armeabi-v7a --arch=arm64-v8a --arch=x86_64 --arch=x86
 
-testapps-service_library-aar: virtualenv 
+testapps-service_library-aar: virtualenv
 	. $(ACTIVATE) && cd testapps/on_device_unit_tests/ && \
     python setup.py aar --sdk-dir $(ANDROID_SDK_HOME) --ndk-dir $(ANDROID_NDK_HOME) \
     --bootstrap service_library \

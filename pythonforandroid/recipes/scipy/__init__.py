@@ -8,7 +8,7 @@ class ScipyRecipe(MesonRecipe):
     version = "v1.15.2"
     url = "git+https://github.com/scipy/scipy.git"
     hostpython_prerequisites = ["Cython>=3.0.6"]
-    depends = ["numpy", "libopenblas"]
+    depends = ["numpy", "libopenblas", "fortran"]
     need_stl_shared = True
     meson_version = "1.5.0"
     hostpython_prerequisites = ["numpy"]
